@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://unpkg.com/tachyons@4.9.0/css/tachyons.min.css">
   <title>Stripe Netlify Example</title>
+  <link rel="shortcut icon" href="/favicon.ico">
 </head>
 <body>
   <header class="cover sans-serif vh-100" style="background:linear-gradient(to right, #f85032, #e73827) no-repeat center right;background-size: cover;">
@@ -14,6 +15,10 @@
         <a class="link dim white b f1 dib mr3" href="/" title="Home">Stripe Netlify Example</a>
       </nav>
       <form class="mw6 center" name="contact" id="payment-form" action="/success" method="post" netlify netlify-honeypot="bot-field">
+        <label class="clip">Don’t fill this out: <input type="hidden" name="stripeToken" id="token"/></label>
+
+        <label class="clip">Don’t fill this out either: <input type="text" name="bot-field"/></label>
+
         <div class="mb3">
           <label for="Name" class="clip">Name</label> <input class="StripeElement w-100 pa4 input-reset link" id="name" type="text" name="name" placeholder="Name"/>
         </div>
@@ -32,10 +37,6 @@
         <div id="card-element" class="mb3">
           <!-- a Stripe Element will be inserted here. -->
         </div>
-
-        <label class="clip">Don’t fill this out: <input type="hidden" name="stripeToken" id="token"/></label>
-
-        <label class="clip">Don’t fill this out either: <input type="text" name="bot-field"/></label>
 
         <!-- Used to display form errors -->
         <div id="card-errors" role="alert"></div>
