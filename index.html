@@ -33,6 +33,8 @@
           <!-- a Stripe Element will be inserted here. -->
         </div>
 
+        <label class="clip">Don’t fill this out: <input type="hidden" name="stripeToken" id="token"/></label>
+
         <label class="clip">Don’t fill this out either: <input type="text" name="bot-field"/></label>
 
         <!-- Used to display form errors -->
@@ -146,12 +148,7 @@ form.addEventListener('submit', function(event) {
 
 function stripeTokenHandler(token) {
   // Insert the token ID into the form so it gets submitted to the server
-  var form = document.getElementById('payment-form');
-  var hiddenInput = document.createElement('input');
-  hiddenInput.setAttribute('type', 'hidden');
-  hiddenInput.setAttribute('name', 'stripeToken');
-  hiddenInput.setAttribute('value', token.id);
-  form.appendChild(hiddenInput);
+  document.getElementById('token').setAttribute('value', token.id);
 
   // Submit the form
   form.submit();
